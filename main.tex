@@ -1,0 +1,98 @@
+\documentclass{beamer}
+
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+ 
+\usepackage[utf8]{inputenc}
+\usetheme{Frankfurt}
+ 
+%Information to be included in the title page:
+\title{Qualificação}
+\author{Guilherme}
+\institute{FGV}
+\date{2019}
+ 
+
+ 
+\begin{document}
+ 
+\frame{\titlepage}
+ 
+\begin{frame}
+\frametitle{Bitcoin}
+\begin{itemize}
+    \item É uma cripto-moeda descentralizada, sendo uma forma de dinheiro eletrônico.
+    \item É considerada a primeira moeda digital mundial descentralizada, constituindo um sistema econômico alternativo (peer-to-peer electronic cash system), e responsável pelo ressurgimento do sistema bancário livre.
+    \item O Bitcoin permite transações financeiras sem intermediários, mas verificadas por todos usuários (nodos) da rede, que são gravadas em um banco de dados distribuídos, chamado de blockchain, uma rede descentralizada.
+\end{itemize}
+\end{frame}
+ 
+ \begin{frame}{Agda}
+ \begin{itemize}
+     \item Linguagem funcional e com sistema de tipos expressivo, capaz de representar especificações.
+     \item Capaz de especificar e programar em um único lugar. Processo de verificação acontece no compilador.
+ \end{itemize}
+ \end{frame}
+ 
+ \begin{frame}{Agda - II}
+ \begin{itemize}
+     \item Linguagem não possui Built-in como em Python. Tipos como inteiros, ponto flutuantes, strings, vetores deve, ser definidos pelo próprio usuário.
+     \item Tipos em Agda são uma generalização de tipos de dados algébricos encontrados em Haskell e ML.
+ \end{itemize}
+ \end{frame}
+ 
+ \begin{frame}{Bibliografia}
+    \includegraphics[width=4cm, height=6cm]{TDD}
+    \includegraphics[width=4cm, height=6cm]{ProgrammingBitcoin.jpg}
+ \end{frame}
+ 
+ \begin{frame}{Bibliografia II}
+    \begin{itemize}
+        \item Programming Language Foundations in Agda
+        \item Paper Modelling Bitcoin in Agda de Anton Setzer.
+        Dept. of Computer Science, Swansea University, Singleton Park, Swansea SA28PP, UK
+    \end{itemize}
+ \end{frame}
+ 
+ \begin{frame}
+\frametitle{Objetivos}
+\begin{itemize}
+    \item Programar uma criptomoeda (parecida com o Bitcoin) em Agda. Uma linguagem com tipos dependentes.
+    \includegraphics[width=8cm, height=5cm]{TwoBitcoins}
+\end{itemize}
+\end{frame}
+
+  \begin{frame}{O que já foi feito}
+    \begin{itemize}
+        \item Programada cripto-moeda em python
+        \item Programada parte da blockchain em Agda
+        \item Pelo paper, já foi feito parte de transações. UTXO (Unspent transaction output)
+    \end{itemize}
+  \end{frame}
+  
+  \begin{frame}{Próximos passos}
+    \begin{itemize}
+        \item Juntar a parte da blockchain com transações
+        \item Se necessário, provar alguns teoremas relacionados ao bitcoin
+    \end{itemize}
+  \end{frame}
+  
+  \begin{frame}{Teoremas}
+    \begin{itemize}
+        \item Se uma transação tem algum output e ele não foi usada em nenhuma outra transação. Então ela deve estar na lista de outputs transactions não usados
+        \item Se uma transação tem algum output que foi gasto. Ele não pode ser usado novamente.
+        \item Provar que transações e mensagens ids são únicos
+    \end{itemize}
+  \end{frame}
+  
+  \begin{frame}{O que não será feito}
+    \begin{itemize}
+      \item Modelo de cripto-moeda em que é possível algum tipo de fork. No bitcoin, é possível que exista algum tipo de fork temporário
+      \item Pool de transações. Sua utilidade é apenas para guardar as transações que ainda não foram adicionadas na blockchain. 
+      Isso pode ser feito fora do protocolo principal
+      \item Otimização e protocolos RPC. O objetivo do projeto é definir as propriedades da cripto-moeda, não como ela será implementada e usada
+    \end{itemize}
+  \end{frame}
+  
+\end{document}
+
