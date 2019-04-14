@@ -1,9 +1,13 @@
 \documentclass{beamer}
 
+\usepackage{agda}
+\usepackage{catchfilebetweentags}
+\usepackage{changepage}
+
 \usepackage{graphicx}
+
 \graphicspath{ {./images/} }
  
-\usepackage[utf8]{inputenc}
 \usetheme{Frankfurt}
  
 %Information to be included in the title page:
@@ -41,24 +45,47 @@
  \end{itemize}
  \end{frame}
  
- \begin{frame}{Bibliografia}
-    \includegraphics[width=4cm, height=6cm]{TDD}
-    \includegraphics[width=4cm, height=6cm]{ProgrammingBitcoin.jpg}
- \end{frame}
- 
- \begin{frame}{Bibliografia II}
-    \begin{itemize}
-        \item Programming Language Foundations in Agda
-        \item Paper Modelling Bitcoin in Agda de Anton Setzer.
-        Dept. of Computer Science, Swansea University, Singleton Park, Swansea SA28PP, UK
-    \end{itemize}
- \end{frame}
+ \begin{frame}{Agda --- III}
+\begin{itemize}
+	\item Definindo os números naturais com axiomas de peano
+           \ExecuteMetaData[latex/Code.tex]{nat}
+ \end{itemize}
+\end{frame}
+
+       \begin{frame}{Agda --- IV}
+         \begin{itemize}
+           \item Adição em Agda:
+         \end{itemize}
+         \ExecuteMetaData[latex/Code.tex]{plus}
+\end{frame}
+
+       \begin{frame}{Agda - V}
+         \begin{itemize}
+           \item Dizemos que um certo tipo é dependente se este depende de um valor.
+           \item Exemplo --- Listas indexadas por seu tamanho:
+         \end{itemize}
+         \ExecuteMetaData[latex/Code.tex]{vector}
+\end{frame}
+
+       \begin{frame}{Agda - VI}
+	\begin{adjustwidth}{-3.5em}{-2em} \fontsize{8}{11}
+         \ExecuteMetaData[latex/Code.tex]{blockchain}
+	\end{adjustwidth}
+\end{frame}
  
  \begin{frame}
 \frametitle{Objetivos}
 \begin{itemize}
     \item Programar uma criptomoeda (parecida com o Bitcoin) em Agda. Uma linguagem com tipos dependentes.
     \includegraphics[width=8cm, height=5cm]{TwoBitcoins}
+\end{itemize}
+\end{frame}
+
+ \begin{frame}
+\frametitle{Justificativa}
+\begin{itemize}
+    \item Programar um protocólo de criptomoedas livre de BUGs
+    \item Com Agda, além da programação da criptomoeda, temos a sua especificação de como ela deveria se comportar
 \end{itemize}
 \end{frame}
 
@@ -93,6 +120,19 @@
       \item Otimização e protocolos RPC. O objetivo do projeto é definir as propriedades da cripto-moeda, não como ela será implementada e usada
     \end{itemize}
   \end{frame}
+
+ \begin{frame}{Livros}
+    \includegraphics[width=4cm, height=6cm]{TDD}
+    \includegraphics[width=4cm, height=6cm]{ProgrammingBitcoin.jpg}
+ \end{frame}
+ 
+ \begin{frame}{Bibliografia}
+    \begin{itemize}
+        \item Programming Language Foundations in Agda
+        \item Paper Modelling Bitcoin in Agda de Anton Setzer.
+        Dept. of Computer Science, Swansea University, Singleton Park, Swansea SA28PP, UK
+    \end{itemize}
+ \end{frame}
   
 \end{document}
 
