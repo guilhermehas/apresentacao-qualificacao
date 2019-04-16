@@ -17,7 +17,13 @@ stdenv.mkDerivation {
         latexmk
         blindtext
         substr
-        
+
+        url
+        amsmath
+        parskip
+        fancyhdr
+        vmargin
+
         changepage
 
         polytable
@@ -27,26 +33,6 @@ stdenv.mkDerivation {
         ucs
         catchfilebetweentags
 
-        fvextra
-        framed
-        newtx
-        nowidow
-        emptypage
-        wrapfig
-        subfigure
-        adjustbox
-        collectbox
-        tikz-cd
-        imakeidx
-        idxlayout
-        subfiles
-        lettrine
-        upquote
-        libertine
-        mweights
-        fontaxes
-        mdframed
-        needspace
         xifthen
         ifnextok
         currfile
@@ -64,7 +50,9 @@ stdenv.mkDerivation {
         minifp
         titlecaps
         enumitem
-        l3packages;
+        l3packages
+        ;
       })
+    haskellPackages.Agda
   ];
 }
