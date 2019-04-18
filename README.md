@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.com/guilhermehas/qualificacao-apresentacao.svg?branch=master)](https://travis-ci.com/guilhermehas/qualificacao-apresentacao)
 
 ## Link para slides
-[slides](https://guilhermehas.github.io/pdf-slide-qualificacao/slides.pdf)
+[slides](https://guilhermehas.github.io/qualificacao-apresentacao/slides.pdf)
 
 # Build with nix
 Install nix and run this command:
