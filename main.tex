@@ -21,7 +21,9 @@
 \begin{document}
  
 \frame{\titlepage}
- 
+
+\section{Bitcoin}
+
 \begin{frame}
 \frametitle{Bitcoin}
 \begin{itemize}
@@ -46,6 +48,8 @@
 \includegraphics[width=11cm, height=8cm]{blockchain3}
 \end{frame}
  
+\section{Agda}
+
  \begin{frame}{Agda}
  \begin{itemize}
      \item Linguagem funcional e com sistema de tipos expressivo, capaz de representar especificações.
@@ -88,6 +92,8 @@
 	\end{adjustwidth}
 \end{frame}
  
+\section{Objetivos}
+
  \begin{frame}
 \frametitle{Objetivos}
 \begin{itemize}
@@ -95,6 +101,8 @@
     \includegraphics[width=8cm, height=5cm]{TwoBitcoins}
 \end{itemize}
 \end{frame}
+
+\section{Justificativa}
 
  \begin{frame}
 \frametitle{Justificativa}
@@ -104,37 +112,64 @@
 \end{itemize}
 \end{frame}
 
-  \begin{frame}{O que já foi feito}
-    \begin{itemize}
-        \item Programada cripto-moeda em python
-        \item Programada parte da blockchain em Agda
-        \item Pelo paper, já foi feito parte de transações. UTXO (Unspent transaction output)
-    \end{itemize}
-  \end{frame}
+\section{Bugs}
+
+ \begin{frame}
+   \frametitle{Maleabilidade de transacao}
+\begin{itemize}
+  \item Nesse tipo de bug, era possível alterar o hash da transação depois que ela foi enviada
+  \item Todos os dados para calcular do hash não eram previamente calculados. Ou seja, o minerador conseguiria alterar o hash da transação
+  \item Possível ataque seria um usuário enviar uma transação e não receber a confirmação do envio da transação.
+    Logo em seguida, este usuário enviaria de novo outra transação. Dessa forma, ele gastaria 2 vezes a mesma quantidade
+  \item Esse tipo de BUG poderia ser evitado usando tipos dependentes. Colocando como característica da transação, o fato de seu ID ser único
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{DAO Bug}
+  \begin{itemize}
+    \item Bug que aconteceu em um cripto-contrato da rede Ethereum com um prejuízo de mais do que 250 milhões de dólares
+    \item No cripto-contrato, existia uma função recursiva que não terminava. Ou seja, o usuário enviava uma quantidade de ethereum, depois acontecia um loop infinito e só depois era feito a atualização do seu balanço
+    \item Em Agda, esse tipo de bug seria evitado, pois é necessário provar que a função termina. Logo, loops infinitos não são possíveis em Agda
+  \end{itemize}
+\end{frame}
+
+\section{Próximos Passos}
+
+\begin{frame}{O que já foi feito}
+  \begin{itemize}
+      \item Programada cripto-moeda em python
+      \item Programada parte da blockchain em Agda
+      \item Pelo paper, já foi feito parte de transações. UTXO (Unspent transaction output)
+  \end{itemize}
+\end{frame}
+
   
-  \begin{frame}{Próximos passos}
-    \begin{itemize}
-        \item Juntar a parte da blockchain com transações
-        \item Se necessário, provar alguns teoremas relacionados ao bitcoin
-    \end{itemize}
-  \end{frame}
-  
-  \begin{frame}{Teoremas}
-    \begin{itemize}
-        \item Se uma transação tem algum output e ele não foi usada em nenhuma outra transação. Então ela deve estar na lista de outputs transactions não usados
-        \item Se uma transação tem algum output que foi gasto. Ele não pode ser usado novamente.
-        \item Provar que transações e mensagens ids são únicos
-    \end{itemize}
-  \end{frame}
-  
-  \begin{frame}{O que não será feito}
-    \begin{itemize}
-      \item Modelo de cripto-moeda em que é possível algum tipo de fork. No bitcoin, é possível que exista algum tipo de fork temporário
-      \item Pool de transações. Sua utilidade é apenas para guardar as transações que ainda não foram adicionadas na blockchain. 
-      Isso pode ser feito fora do protocolo principal
-      \item Otimização e protocolos RPC. O objetivo do projeto é definir as propriedades da cripto-moeda, não como ela será implementada e usada
-    \end{itemize}
-  \end{frame}
+\begin{frame}{Próximos passos}
+  \begin{itemize}
+      \item Juntar a parte da blockchain com transações
+      \item Se necessário, provar alguns teoremas relacionados ao bitcoin
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Teoremas}
+  \begin{itemize}
+      \item Se uma transação tem algum output e ele não foi usada em nenhuma outra transação. Então ela deve estar na lista de outputs transactions não usados
+      \item Se uma transação tem algum output que foi gasto. Ele não pode ser usado novamente.
+      \item Provar que transações e mensagens ids são únicos
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{O que não será feito}
+  \begin{itemize}
+    \item Modelo de cripto-moeda em que é possível algum tipo de fork. No bitcoin, é possível que exista algum tipo de fork temporário
+    \item Pool de transações. Sua utilidade é apenas para guardar as transações que ainda não foram adicionadas na blockchain. 
+    Isso pode ser feito fora do protocolo principal
+    \item Otimização e protocolos RPC. O objetivo do projeto é definir as propriedades da cripto-moeda, não como ela será implementada e usada
+  \end{itemize}
+\end{frame}
+
+\section{Finalização}
 
  \begin{frame}{Livros}
     \includegraphics[width=4cm, height=6cm]{TDD}
