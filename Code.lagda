@@ -74,6 +74,15 @@ head (x :: xs) = x
 \end{code}
 %</vectorhead>
 
+%<*zipWith>
+\begin{code}
+zipWith : ∀ {A B C : Set}{n : ℕ} → (A → B → C)
+          → Vec A n → Vec B n → Vec C n
+zipWith _ [] [] = []
+zipWith f (x :: xs) (y :: ys) = f x y :: zipWith f xs ys
+\end{code}
+%</zipWith>
+
 %<*vectorconcat>
 \begin{code}
 _++v_ : ∀ {n m A} → Vec A n → Vec A m → Vec A (n + m)

@@ -3,19 +3,29 @@
 \usepackage{agda}
 \usepackage{catchfilebetweentags}
 \usepackage{changepage}
+\usepackage{babel}
 
 \usepackage{graphicx}
+
+\usepackage[autostyle=true,french=guillemets,maxlevel=3]{csquotes}
 
 \graphicspath{ {./images/} }
  
 \usetheme{Frankfurt}
+
+\DeclareQuoteStyle{english}
+  {\em}
+	{\em}
+	{\textquotedblleft\em}
+	{\em\textquotedblright}
+
  
 %Information to be included in the title page:
 \title{Qualificação}
-\author{Guilherme}
-\institute{FGV}
+\author[Guilherme, Flávio]{Guilherme Horta Alvares da Silva \\
+  Orientador: Flávio Codeço Coelho}
+\institute{Fundação Getulio Vargas}
 \date{2019}
- 
 
  
 \begin{document}
@@ -28,7 +38,7 @@
 \frametitle{Bitcoin}
 \begin{itemize}
     \item É uma cripto-moeda descentralizada, sendo uma forma de dinheiro eletrônico.
-    \item É considerada a primeira moeda digital mundial descentralizada, constituindo um sistema econômico alternativo (peer-to-peer electronic cash system), e responsável pelo ressurgimento do sistema bancário livre.
+    \item É considerada a primeira moeda digital mundial descentralizada, constituindo um sistema econômico alternativo (\foreignquote{english}{peer-to-peer electronic cash system}), e responsável pelo ressurgimento do sistema bancário livre.
     \item O Bitcoin permite transações financeiras sem intermediários, mas verificadas por todos usuários (nodos) da rede, que são gravadas em um banco de dados distribuídos, chamado de blockchain, uma rede descentralizada.
 \end{itemize}
 \end{frame}
@@ -52,14 +62,14 @@
 
  \begin{frame}{Agda}
  \begin{itemize}
-     \item Linguagem funcional e com sistema de tipos expressivo, capaz de representar especificações.
-     \item Capaz de especificar e programar em um único lugar. Processo de verificação acontece no compilador.
+     \item Linguagem funcional com sistema de tipos expressivo capaz de representar especificações.
+     \item Possibilita especificar e programar em um único lugar. Processo de verificação acontece no compilador.
  \end{itemize}
  \end{frame}
  
  \begin{frame}{Agda --- II}
  \begin{itemize}
-     \item Linguagem não possui Built-in como em Python. Tipos como inteiros, ponto flutuantes, strings, vetores deve, ser definidos pelo próprio usuário.
+     \item Linguagem não possui \foreignquote{english}{Built-in} como em Python. Tipos como inteiros, ponto flutuantes, strings, vetores devem ser definidos pelo próprio usuário.
      \item Tipos em Agda são uma generalização de tipos de dados algébricos encontrados em Haskell e ML.
  \end{itemize}
  \end{frame}
@@ -71,33 +81,43 @@
  \end{itemize}
 \end{frame}
 
-       \begin{frame}{Agda --- IV}
-         \begin{itemize}
-           \item Adição em Agda:
-         \end{itemize}
-         \ExecuteMetaData[latex/Code.tex]{plus}
+\begin{frame}{Agda --- IV}
+ \begin{itemize}
+   \item Adição em Agda:
+ \end{itemize}
+ \ExecuteMetaData[latex/Code.tex]{plus}
 \end{frame}
 
-       \begin{frame}{Agda --- V}
-         \begin{itemize}
-           \item Dizemos que um certo tipo é dependente se este depende de um valor.
-           \item Exemplo --- Listas indexadas por seu tamanho:
-         \end{itemize}
-         \ExecuteMetaData[latex/Code.tex]{vector}
+\begin{frame}{Agda --- V}
+ \begin{itemize}
+   \item Diz-se um certo tipo é dependente se este depende de um valor.
+   \item Exemplo --- Listas indexadas por seu tamanho:
+ \end{itemize}
+ \ExecuteMetaData[latex/Code.tex]{vector}
 \end{frame}
 
-       \begin{frame}{Agda --- VI}
-	\begin{adjustwidth}{-3.5em}{-2em} \fontsize{8}{11}
-         \ExecuteMetaData[latex/Code.tex]{blockchain}
-	\end{adjustwidth}
+\begin{frame}{Agda --- VI}
+ \begin{itemize}
+   \item Modo seguro de remover primeiro elemento do vetor
+     \ExecuteMetaData[latex/Code.tex]{vectorhead}
+   \item Função zip com 2 vetores de mesmo tamanho
+     \ExecuteMetaData[latex/Code.tex]{zipWith}
+ \end{itemize}
 \end{frame}
+
+\begin{frame}{Agda --- VII}
+  \begin{adjustwidth}{-3.5em}{-2em} \fontsize{8}{11}
+     \ExecuteMetaData[latex/Code.tex]{blockchain}
+  \end{adjustwidth}
+\end{frame}
+
  
-\section{Objetivos}
+\section{Objetivo}
 
  \begin{frame}
 \frametitle{Objetivos}
 \begin{itemize}
-    \item Programar uma criptomoeda (parecida com o Bitcoin) em Agda. Uma linguagem com tipos dependentes.
+  \item Programar uma criptomoeda (similar ao Bitcoin) em Agda, que é Uma linguagem com tipos dependentes.
     \includegraphics[width=8cm, height=5cm]{TwoBitcoins}
 \end{itemize}
 \end{frame}
@@ -108,20 +128,20 @@
 \frametitle{Justificativa}
 \begin{itemize}
     \item Programar um protocólo de criptomoedas livre de BUGs
-    \item Com Agda, além da programação da criptomoeda, temos a sua especificação de como ela deveria se comportar
+    \item Utilizar Agda permite, além da programação da cripo-moeda, especificar de como ela deve funcionar 
 \end{itemize}
 \end{frame}
 
-\section{Bugs}
+\section{Bug}
 
  \begin{frame}
    \frametitle{Maleabilidade de transacao}
 \begin{itemize}
-  \item Nesse tipo de bug, era possível alterar o hash da transação depois que ela foi enviada
-  \item Todos os dados para calcular do hash não eram previamente calculados. Ou seja, o minerador conseguiria alterar o hash da transação
-  \item Possível ataque seria um usuário enviar uma transação e não receber a confirmação do envio da transação.
-    Logo em seguida, este usuário enviaria de novo outra transação. Dessa forma, ele gastaria 2 vezes a mesma quantidade
-  \item Esse tipo de BUG poderia ser evitado usando tipos dependentes. Colocando como característica da transação, o fato de seu ID ser único
+  \item Nesse tipo de bug, é possível alterar o hash da transação depois que ela foi enviada
+  \item Todos os dados para calcular do hash não eram previamente calculados. Assim, o minerador poderia alterar o hash da transação
+  \item O ataque consistiria de um usuário enviar uma transação e ela não ser confirmada pelo sistema.
+    Logo em seguida, este mesmo usuário enviaria uma outra transação. Desta forma, ele faria duas transações com a mesma moeda
+  \item Este tipo de BUG pode ser evitado usando tipos dependentes. Colocando como característica da transação, o fato de seu ID ser único
 \end{itemize}
 \end{frame}
 
@@ -136,11 +156,11 @@
 
 \section{Próximos Passos}
 
-\begin{frame}{O que já foi feito}
+\begin{frame}{Trabalho já executado}
   \begin{itemize}
       \item Programada cripto-moeda em python
       \item Programada parte da blockchain em Agda
-      \item Pelo paper, já foi feito parte de transações. UTXO (Unspent transaction output)
+      \item Pelo paper, já foi feito parte de transações. UTXO (\foreignquote{english}{Unspent transaction output})
   \end{itemize}
 \end{frame}
 

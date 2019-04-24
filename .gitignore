@@ -6,6 +6,9 @@
 *.toc
 *.fls
 *.ptb
+*.nav
+*.out
+*.snm
 result
 agda.sty
 latex

@@ -24,6 +24,8 @@ stdenv.mkDerivation {
         fancyhdr
         vmargin
 
+        csquotes
+
         changepage
 
         polytable
