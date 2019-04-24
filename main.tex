@@ -32,15 +32,52 @@
  
 \frame{\titlepage}
 
-\section{Bitcoin}
+\begin{frame}
+  \frametitle{Programação de uma criptomoeda em linguagem Agda}
+\begin{itemize}
+  \item Objetivo
+  \item Justificativa
+  \item Introdução
+  \begin{itemize}
+    \item Criptomoedas
+    \item Agda
+    \item Bugs em criptomoedas
+  \end{itemize}
+  \item Trabalho executado
+  \item Próximos passos
+  \item Referências Bibliográficas
+\end{itemize}
+\end{frame}
+
+\section{Objetivo}
+
+ \begin{frame}
+\frametitle{Objetivo}
+\begin{itemize}
+  \item Programar uma criptomoeda (similar ao Bitcoin) em Agda, que é uma linguagem com tipos dependentes.
+    \includegraphics[width=8cm, height=5cm]{TwoBitcoins}
+\end{itemize}
+\end{frame}
+ 
+\section{Justificativa}
+
+ \begin{frame}
+\frametitle{Justificativa}
+\begin{itemize}
+    \item Programar um protocólo de criptomoedas livre de erros (bugs)
+    \item Utilizar Agda permite, além da programação da criptomoeda, especificar de como ela deve funcionar 
+\end{itemize}
+\end{frame}
+
+\section{Criptomoedas}
 
 \begin{frame}
-\frametitle{Bitcoin}
+  \frametitle{Criptomoeda}
 \begin{itemize}
-    \item É uma cripto-moeda descentralizada, sendo uma forma de dinheiro eletrônico.
-    \item É considerada a primeira moeda digital mundial descentralizada, constituindo um sistema econômico alternativo (\foreignquote{english}{peer-to-peer electronic cash system}), e responsável pelo ressurgimento do sistema bancário livre.
-    \item O Bitcoin permite transações financeiras sem intermediários, mas verificadas por todos usuários (nodos) da rede, que são gravadas em um banco de dados distribuídos, chamado de blockchain, uma rede descentralizada.
-\end{itemize}
+    \item Uma criptomoeda é um meio de troca descentralizado que se utiliza da tecnologia de blockchain e da criptografia para assegurar a validade das transações e a criação de novas unidades da moeda
+    \item O bitcoin é considerado a primeira moeda digital mundial descentralizada, constituindo um sistema econômico alternativo (\foreignquote{english}{peer-to-peer electronic cash system}) e responsável pelo ressurgimento do sistema bancário livre.
+    \item O Bitcoin permite transações financeiras sem intermediários, mas verificadas por todos usuários (nodos da rede). Estas transações são gravadas em um banco de dados distribuídos (uma rede descentralizada), chamado de \foreignquote{english}{blockchain}.
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -62,21 +99,21 @@
 
  \begin{frame}{Agda}
  \begin{itemize}
-     \item Linguagem funcional com sistema de tipos expressivo capaz de representar especificações.
+   \item Linguagem funcional com sistema de tipos expressivos capazes de representar as especificações.
      \item Possibilita especificar e programar em um único lugar. Processo de verificação acontece no compilador.
  \end{itemize}
  \end{frame}
  
  \begin{frame}{Agda --- II}
  \begin{itemize}
-     \item Linguagem não possui \foreignquote{english}{Built-in} como em Python. Tipos como inteiros, ponto flutuantes, strings, vetores devem ser definidos pelo próprio usuário.
+     \item Linguagem não possui \foreignquote{english}{Built-in} como em Python. Tipos como inteiros, ponto flutuantes, \foreignquote{english}{strings} e vetores devem ser definidos pelo próprio usuário.
      \item Tipos em Agda são uma generalização de tipos de dados algébricos encontrados em Haskell e ML.
  \end{itemize}
  \end{frame}
  
  \begin{frame}{Agda --- III}
 \begin{itemize}
-	\item Definindo os números naturais com axiomas de peano
+  \item Definição dos números naturais como axiomas de Peano
            \ExecuteMetaData[latex/Code.tex]{nat}
  \end{itemize}
 \end{frame}
@@ -90,7 +127,7 @@
 
 \begin{frame}{Agda --- V}
  \begin{itemize}
-   \item Diz-se um certo tipo é dependente se este depende de um valor.
+   \item Um tipo é dependente se este depende de um valor.
    \item Exemplo --- Listas indexadas por seu tamanho:
  \end{itemize}
  \ExecuteMetaData[latex/Code.tex]{vector}
@@ -103,33 +140,6 @@
    \item Função zip com 2 vetores de mesmo tamanho
      \ExecuteMetaData[latex/Code.tex]{zipWith}
  \end{itemize}
-\end{frame}
-
-\begin{frame}{Agda --- VII}
-  \begin{adjustwidth}{-3.5em}{-2em} \fontsize{8}{11}
-     \ExecuteMetaData[latex/Code.tex]{blockchain}
-  \end{adjustwidth}
-\end{frame}
-
- 
-\section{Objetivo}
-
- \begin{frame}
-\frametitle{Objetivos}
-\begin{itemize}
-  \item Programar uma criptomoeda (similar ao Bitcoin) em Agda, que é Uma linguagem com tipos dependentes.
-    \includegraphics[width=8cm, height=5cm]{TwoBitcoins}
-\end{itemize}
-\end{frame}
-
-\section{Justificativa}
-
- \begin{frame}
-\frametitle{Justificativa}
-\begin{itemize}
-    \item Programar um protocólo de criptomoedas livre de BUGs
-    \item Utilizar Agda permite, além da programação da cripo-moeda, especificar de como ela deve funcionar 
-\end{itemize}
 \end{frame}
 
 \section{Bug}
@@ -154,42 +164,50 @@
   \end{itemize}
 \end{frame}
 
-\section{Próximos Passos}
+\section{Trabalho executado}
 
 \begin{frame}{Trabalho já executado}
   \begin{itemize}
-      \item Programada cripto-moeda em python
+      \item Programada criptomoeda em python
       \item Programada parte da blockchain em Agda
       \item Pelo paper, já foi feito parte de transações. UTXO (\foreignquote{english}{Unspent transaction output})
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Blockchain em Agda}
+  \begin{adjustwidth}{-3.5em}{-2em} \fontsize{8}{11}
+     \ExecuteMetaData[latex/Code.tex]{blockchain}
+  \end{adjustwidth}
+\end{frame}
   
+\section{Próximos Passos}
+
 \begin{frame}{Próximos passos}
   \begin{itemize}
-      \item Juntar a parte da blockchain com transações
-      \item Se necessário, provar alguns teoremas relacionados ao bitcoin
+    \item Anexar a blockchain às transações já programadas em Agda
+    \item Provar alguns teoremas relacionados a criptomoeda
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Teoremas}
   \begin{itemize}
-      \item Se uma transação tem algum output e ele não foi usada em nenhuma outra transação. Então ela deve estar na lista de outputs transactions não usados
-      \item Se uma transação tem algum output que foi gasto. Ele não pode ser usado novamente.
+    \item Se uma transação tem algum \foreignquote{english}{output} que não foi usado em nenhuma outra transação, 
+      então ela deve estar na lista de \foreignquote{english}{outputs transactions} não usados
+    \item Se uma transação tem algum \foreignquote{english}{output} que foi gasto, ele não pode ser usado novamente
       \item Provar que transações e mensagens ids são únicos
   \end{itemize}
 \end{frame}
 
-\begin{frame}{O que não será feito}
+\begin{frame}{O que não será realizado}
   \begin{itemize}
-    \item Modelo de cripto-moeda em que é possível algum tipo de fork. No bitcoin, é possível que exista algum tipo de fork temporário
-    \item Pool de transações. Sua utilidade é apenas para guardar as transações que ainda não foram adicionadas na blockchain. 
+    \item Modelo de criptomoeda em que é possível algum tipo de fork. Por exemplo, no bitcoin, é possível que exista algum tipo de fork temporário
+    \item Pool de transações. Sua utilidade é apenas para guardar as transações que ainda não foram adicionadas a blockchain. 
     Isso pode ser feito fora do protocolo principal
-    \item Otimização e protocolos RPC. O objetivo do projeto é definir as propriedades da cripto-moeda, não como ela será implementada e usada
+  \item Otimização e protocolos RPC (\foreignquote{english}{Remote Procedure Call}). O objetivo do projeto é definir as propriedades da criptomoeda, não como ela será implementada e usada
   \end{itemize}
 \end{frame}
 
-\section{Finalização}
+\section{Bibliografia}
 
  \begin{frame}{Livros}
     \includegraphics[width=4cm, height=6cm]{TDD}
