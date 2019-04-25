@@ -26,6 +26,9 @@ stdenv.mkDerivation {
 
         csquotes
 
+        apacite
+        logreq
+        biblatex
         changepage
 
         polytable

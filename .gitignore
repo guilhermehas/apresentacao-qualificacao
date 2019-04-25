@@ -9,6 +9,8 @@
 *.nav
 *.out
 *.snm
+*.bbl
+*.blg
 result
 agda.sty
 latex
